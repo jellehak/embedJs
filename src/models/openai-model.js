@@ -3,13 +3,15 @@ import { ChatOpenAI } from '@langchain/openai';
 import { HumanMessage, AIMessage, SystemMessage } from '@langchain/core/messages';
 import { BaseModel } from '../interfaces/base-model.js';
 export class OpenAi extends BaseModel {
-    constructor({ temperature, modelName }) {
+    constructor({ temperature, modelName, ...options }) {
         super(temperature);
         this.debug = createDebugMessages('embedjs:model:OpenAi');
         this.modelName = modelName;
+        this.options = options
     }
     async init() {
-        this.model = new ChatOpenAI({ temperature: this.temperature, modelName: this.modelName });
+        const options = { temperature: this.temperature, modelName: this.modelName, ...this.options }
+        this.model = new ChatOpenAI(options);
     }
     async runQuery(system, userQuery, supportingContext, pastConversations) {
         const pastMessages = [new SystemMessage(system)];
