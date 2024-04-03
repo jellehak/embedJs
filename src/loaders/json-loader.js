@@ -4,18 +4,6 @@ import { cleanString, truncateCenterString } from '../util/strings.js';
 export class JsonLoader extends BaseLoader {
     constructor({ object, pickKeysForEmbedding, }) {
         super(`JsonLoader_${md5(cleanString(JSON.stringify(object)))}`);
-        Object.defineProperty(this, "object", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "pickKeysForEmbedding", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         this.pickKeysForEmbedding = pickKeysForEmbedding;
         this.object = object;
     }

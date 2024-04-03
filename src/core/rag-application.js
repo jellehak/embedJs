@@ -7,54 +7,7 @@ import { cleanString } from '../util/strings.js';
 import { OpenAi3SmallEmbeddings } from '../index.js';
 export class RAGApplication {
     constructor(llmBuilder) {
-        Object.defineProperty(this, "debug", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: createDebugMessages('embedjs:core')
-        });
-        Object.defineProperty(this, "initLoaders", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "queryTemplate", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "searchResultCount", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "loaders", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "cache", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "vectorDb", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "model", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        this.debug = createDebugMessages('embedjs:core');
         this.cache = llmBuilder.getCache();
         BaseLoader.setCache(this.cache);
         this.model = llmBuilder.getModel();

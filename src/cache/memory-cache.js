@@ -1,18 +1,4 @@
 export class MemoryCache {
-    constructor() {
-        Object.defineProperty(this, "loaderList", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "loaderCustomValues", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-    }
     async init() {
         this.loaderList = {};
         this.loaderCustomValues = {};

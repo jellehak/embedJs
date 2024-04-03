@@ -19,12 +19,6 @@ export class RAGEmbedding {
         });
     }
     constructor(embeddingModel) {
-        Object.defineProperty(this, "embedding", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         this.embedding = embeddingModel;
     }
 }

@@ -3,24 +3,7 @@ import * as fs from 'node:fs/promises';
 import { connect } from 'vectordb';
 export class LanceDb {
     constructor({ path, isTemp }) {
-        Object.defineProperty(this, "isTemp", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: true
-        });
-        Object.defineProperty(this, "path", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "table", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        this.isTemp = true;
         this.isTemp = isTemp !== undefined ? isTemp : false;
         this.path = path;
     }
@@ -87,9 +70,4 @@ export class LanceDb {
         await this.table.delete('id IS NOT NULL');
     }
 }
-Object.defineProperty(LanceDb, "STATIC_DB_NAME", {
-    enumerable: true,
-    configurable: true,
-    writable: true,
-    value: 'vectors'
-});
+LanceDb.STATIC_DB_NAME = 'vectors';

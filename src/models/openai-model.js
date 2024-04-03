@@ -5,24 +5,7 @@ import { BaseModel } from '../interfaces/base-model.js';
 export class OpenAi extends BaseModel {
     constructor({ temperature, modelName }) {
         super(temperature);
-        Object.defineProperty(this, "debug", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: createDebugMessages('embedjs:model:OpenAi')
-        });
-        Object.defineProperty(this, "modelName", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "model", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        this.debug = createDebugMessages('embedjs:model:OpenAi');
         this.modelName = modelName;
     }
     async init() {

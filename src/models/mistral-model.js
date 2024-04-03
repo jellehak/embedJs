@@ -5,18 +5,7 @@ import { BaseModel } from '../interfaces/base-model.js';
 export class Mistral extends BaseModel {
     constructor({ temperature, accessToken, modelName, }) {
         super(temperature);
-        Object.defineProperty(this, "debug", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: createDebugMessages('embedjs:model:Mistral')
-        });
-        Object.defineProperty(this, "model", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        this.debug = createDebugMessages('embedjs:model:Mistral');
         this.model = new ChatMistralAI({ apiKey: accessToken, modelName: modelName ?? 'mistral-medium' });
     }
     async runQuery(system, userQuery, supportingContext, pastConversations) {

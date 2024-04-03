@@ -4,24 +4,7 @@ export class BaseModel {
         BaseModel.defaultTemperature = temperature;
     }
     constructor(temperature) {
-        Object.defineProperty(this, "baseDebug", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: createDebugMessages('embedjs:model:BaseModel')
-        });
-        Object.defineProperty(this, "conversationMap", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "_temperature", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        this.baseDebug = createDebugMessages('embedjs:model:BaseModel');
         this._temperature = temperature;
         this.conversationMap = new Map();
     }

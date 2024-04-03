@@ -8,18 +8,6 @@ import { cleanString } from '../util/strings.js';
 export class PdfLoader extends BaseLoader {
     constructor({ filePath, url }) {
         super(`PdfLoader_${md5(filePath ? `FILE_${filePath}` : `URL_${url}`)}`);
-        Object.defineProperty(this, "pathOrUrl", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "isUrl", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         this.isUrl = filePath ? false : true;
         this.pathOrUrl = filePath ?? url;
     }

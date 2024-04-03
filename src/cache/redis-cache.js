@@ -1,18 +1,6 @@
 import { Redis } from 'ioredis';
 export class RedisCache {
     constructor(options) {
-        Object.defineProperty(this, "options", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "redis", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         options.keyPrefix = options.keyPrefix ?? 'REDIS_CACHE';
         this.options = options;
     }

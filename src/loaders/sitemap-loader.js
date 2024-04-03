@@ -6,18 +6,7 @@ import { WebLoader } from './web-loader.js';
 export class SitemapLoader extends BaseLoader {
     constructor({ url }) {
         super(`SitemapLoader_${md5(url)}`);
-        Object.defineProperty(this, "debug", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: createDebugMessages('embedjs:loader:SitemapLoader')
-        });
-        Object.defineProperty(this, "url", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        this.debug = createDebugMessages('embedjs:loader:SitemapLoader');
         this.url = url;
     }
     async *getChunks() {

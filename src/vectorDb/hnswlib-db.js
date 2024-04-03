@@ -2,30 +2,7 @@ import HNSWLib from 'hnswlib-node';
 import createDebugMessages from 'debug';
 export class HNSWDb {
     constructor() {
-        Object.defineProperty(this, "debug", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: createDebugMessages('embedjs:vector:HNSWDb')
-        });
-        Object.defineProperty(this, "index", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "docCount", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "docMap", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        this.debug = createDebugMessages('embedjs:vector:HNSWDb');
         this.docCount = 0;
         this.docMap = new Map();
     }

@@ -7,18 +7,7 @@ import { cleanString } from '../util/strings.js';
 export class YoutubeLoader extends BaseLoader {
     constructor({ videoIdOrUrl }) {
         super(`YoutubeLoader_${md5(videoIdOrUrl)}`);
-        Object.defineProperty(this, "debug", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: createDebugMessages('embedjs:loader:YoutubeLoader')
-        });
-        Object.defineProperty(this, "videoIdOrUrl", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        this.debug = createDebugMessages('embedjs:loader:YoutubeLoader');
         this.videoIdOrUrl = videoIdOrUrl;
     }
     async *getChunks() {

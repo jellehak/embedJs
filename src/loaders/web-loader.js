@@ -8,24 +8,7 @@ import { cleanString, truncateCenterString } from '../util/strings.js';
 export class WebLoader extends BaseLoader {
     constructor({ content, url }) {
         super(`WebLoader_${md5(content ? `CONTENT_${content}` : `URL_${url}`)}`);
-        Object.defineProperty(this, "debug", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: createDebugMessages('embedjs:loader:WebLoader')
-        });
-        Object.defineProperty(this, "contentOrUrl", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "isUrl", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        this.debug = createDebugMessages('embedjs:loader:WebLoader');
         this.isUrl = content ? false : true;
         this.contentOrUrl = content ?? url;
     }

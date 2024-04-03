@@ -2,36 +2,7 @@ import { Pinecone } from '@pinecone-database/pinecone';
 import createDebugMessages from 'debug';
 export class PineconeDb {
     constructor({ projectName, namespace, indexSpec, }) {
-        Object.defineProperty(this, "debug", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: createDebugMessages('embedjs:vector:PineconeDb')
-        });
-        Object.defineProperty(this, "client", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "namespace", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "projectName", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "indexSpec", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        this.debug = createDebugMessages('embedjs:vector:PineconeDb');
         this.client = new Pinecone();
         this.projectName = projectName;
         this.namespace = namespace;
@@ -103,9 +74,4 @@ Pinecone does not allow deleting by metadata filtering in serverless and free (w
         await this.client.Index(this.projectName).namespace(this.namespace).deleteAll();
     }
 }
-Object.defineProperty(PineconeDb, "PINECONE_INSERT_CHUNK_SIZE", {
-    enumerable: true,
-    configurable: true,
-    writable: true,
-    value: 200
-}); //Pinecone only allows inserting 2MB worth of chunks at a time; this is an approximation
+PineconeDb.PINECONE_INSERT_CHUNK_SIZE = 200; //Pinecone only allows inserting 2MB worth of chunks at a time; this is an approximation

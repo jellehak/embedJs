@@ -5,12 +5,6 @@ import { cleanString, truncateCenterString } from '../util/strings.js';
 export class TextLoader extends BaseLoader {
     constructor({ text }) {
         super(`TextLoader_${md5(text)}`);
-        Object.defineProperty(this, "text", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         this.text = text;
     }
     async *getChunks() {

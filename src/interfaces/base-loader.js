@@ -6,18 +6,6 @@ export class BaseLoader extends EventEmitter {
     }
     constructor(uniqueId, canIncrementallyLoad = false) {
         super();
-        Object.defineProperty(this, "uniqueId", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "_canIncrementallyLoad", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         this.uniqueId = uniqueId;
         this._canIncrementallyLoad = canIncrementallyLoad;
         createDebugMessages('embedjs:loader:BaseLoader')(`New loader class initalized with key ${uniqueId}`);

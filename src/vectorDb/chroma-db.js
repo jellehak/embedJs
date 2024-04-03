@@ -1,18 +1,6 @@
 import { ChromaClient } from 'chromadb';
 export class ChromaDb {
     constructor({ url }) {
-        Object.defineProperty(this, "url", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "collection", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         this.url = url;
     }
     async init() {
@@ -72,9 +60,4 @@ export class ChromaDb {
         this.collection = await client.createCollection({ name: ChromaDb.STATIC_COLLECTION_NAME });
     }
 }
-Object.defineProperty(ChromaDb, "STATIC_COLLECTION_NAME", {
-    enumerable: true,
-    configurable: true,
-    writable: true,
-    value: 'vectors'
-});
+ChromaDb.STATIC_COLLECTION_NAME = 'vectors';

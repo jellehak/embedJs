@@ -3,24 +3,7 @@ import createDebugMessages from 'debug';
 import { v4 as uuid } from 'uuid';
 export class QdrantDb {
     constructor({ apiKey, url, clusterName }) {
-        Object.defineProperty(this, "debug", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: createDebugMessages('embedjs:vector:QdrantDb')
-        });
-        Object.defineProperty(this, "client", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "clusterName", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        this.debug = createDebugMessages('embedjs:vector:QdrantDb');
         this.client = new QdrantClient({ apiKey, url });
         this.clusterName = clusterName;
     }
@@ -101,9 +84,4 @@ export class QdrantDb {
         });
     }
 }
-Object.defineProperty(QdrantDb, "QDRANT_INSERT_CHUNK_SIZE", {
-    enumerable: true,
-    configurable: true,
-    writable: true,
-    value: 500
-});
+QdrantDb.QDRANT_INSERT_CHUNK_SIZE = 500;

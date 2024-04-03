@@ -3,30 +3,7 @@ import weaviate, { ApiKey, generateUuid5 } from 'weaviate-ts-client';
 import { toTitleCase } from '../util/strings.js';
 export class WeaviateDb {
     constructor({ host, apiKey, className }) {
-        Object.defineProperty(this, "debug", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: createDebugMessages('embedjs:vector:WeaviateDb')
-        });
-        Object.defineProperty(this, "dimensions", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "className", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "client", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        this.debug = createDebugMessages('embedjs:vector:WeaviateDb');
         // @ts-ignore
         this.client = weaviate.client({ scheme: 'https', host, apiKey: new ApiKey(apiKey) });
         this.className = toTitleCase(className); // Weaviate translates the className during create to title case and errors at other places
@@ -133,9 +110,4 @@ export class WeaviateDb {
         await this.init({ dimensions: this.dimensions });
     }
 }
-Object.defineProperty(WeaviateDb, "WEAVIATE_INSERT_CHUNK_SIZE", {
-    enumerable: true,
-    configurable: true,
-    writable: true,
-    value: 500
-});
+WeaviateDb.WEAVIATE_INSERT_CHUNK_SIZE = 500;

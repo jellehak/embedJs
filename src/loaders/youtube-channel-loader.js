@@ -6,18 +6,7 @@ import { YoutubeLoader } from './youtube-loader.js';
 export class YoutubeChannelLoader extends BaseLoader {
     constructor({ channelId }) {
         super(`YoutubeChannelLoader_${md5(channelId)}`);
-        Object.defineProperty(this, "debug", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: createDebugMessages('embedjs:loader:YoutubeChannelLoader')
-        });
-        Object.defineProperty(this, "channelId", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        this.debug = createDebugMessages('embedjs:loader:YoutubeChannelLoader');
         this.channelId = channelId;
     }
     async *getChunks() {

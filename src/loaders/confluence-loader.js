@@ -6,30 +6,7 @@ import { WebLoader } from './web-loader.js';
 export class ConfluenceLoader extends BaseLoader {
     constructor({ spaceNames, confluenceBaseUrl, confluenceUsername, confluenceToken, }) {
         super(`ConfluenceLoader_${md5(spaceNames.join(','))}`);
-        Object.defineProperty(this, "debug", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: createDebugMessages('embedjs:loader:ConfluenceLoader')
-        });
-        Object.defineProperty(this, "confluence", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "confluenceBaseUrl", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "spaceNames", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
+        this.debug = createDebugMessages('embedjs:loader:ConfluenceLoader');
         this.spaceNames = spaceNames;
         this.confluenceBaseUrl = confluenceBaseUrl ?? process.env.CONFLUENCE_BASE_URL;
         this.confluence = new ConfluenceClient({

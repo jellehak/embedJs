@@ -1,18 +1,6 @@
 import * as lmdb from 'lmdb';
 export class LmdbCache {
     constructor({ path }) {
-        Object.defineProperty(this, "dataPath", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "database", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         this.dataPath = path;
     }
     async init() {
