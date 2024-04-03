@@ -4,7 +4,7 @@ import { DEFAULT_INSERT_BATCH_SIZE } from '../global/constants.js';
 import { BaseModel } from '../interfaces/base-model.js';
 import { RAGEmbedding } from './rag-embedding.js';
 import { cleanString } from '../util/strings.js';
-import { OpenAi3SmallEmbeddings } from '../index.js';
+import { OpenAi3SmallEmbeddings } from '../embeddings/openai-3small-embeddings.js';
 export class RAGApplication {
     constructor(llmBuilder) {
         this.debug = createDebugMessages('embedjs:core');
